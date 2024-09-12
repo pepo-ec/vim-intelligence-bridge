@@ -18,7 +18,8 @@ function! intelligence_bridge#process() range
     execute "silent" a:firstline "," a:lastline "write!" input_file
 
     " Obtiene la ruta del script
-    let script_path = expand('<sfile>:p:h:h') . '/script/intelligence_bridge.sh'
+    " let script_path = expand('<sfile>:p:h:h') . '/script/intelligence_bridge.sh'
+    let script_path = expand('~/.vim/plugged/vim-intelligence-bridge/script/intelligence_bridge.sh')
 
     " Ejecuta el script de Bash
     let cmd = shellescape(script_path) . ' ' . shellescape(param) . ' < ' . shellescape(input_file) . ' > ' . shellescape(output_file)
