@@ -1,0 +1,36 @@
+*intelligence_bridge.txt*  Un plugin para procesar texto con Intelligence Bridge
+
+==============================================================================
+CONTENIDO                                     *intelligence-bridge-contents*
+
+    1. Introducción ............... |intelligence-bridge-intro|
+    2. Uso ........................ |intelligence-bridge-usage|
+    3. Configuración .............. |intelligence-bridge-config|
+    4. Acerca de .................. |intelligence-bridge-about|
+
+==============================================================================
+1. Introducción                                *intelligence-bridge-intro*
+
+Intelligence Bridge es un plugin de Vim que permite procesar texto 
+seleccionado usando un script de Bash personalizado, creando un puente 
+entre Vim y procesos de inteligencia externos.
+
+==============================================================================
+2. Uso                                         *intelligence-bridge-usage*
+
+Selecciona el texto en modo visual y presiona <Leader>ib (por defecto).
+Se te pedirá que ingreses un parámetro para el script.
+El resultado se mostrará en un nuevo split vertical.
+
+==============================================================================
+3. Configuración                               *intelligence-bridge-config*
+
+Para cambiar el mapeo por defecto, añade esto a tu .vimrc:
+    let g:intelligence_bridge_map = '<tu_mapeo_preferido>'
+
+==============================================================================
+4. Acerca de                                   *intelligence-bridge-about*
+
+Desarrollado por Pepo
+Repositorio: https://github.com/pepo-ec/intelligence-bridge
+Licencia: MIT
