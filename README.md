@@ -9,4 +9,4 @@ Un plugin de Vim que crea un puente entre tu editor y procesos de inteligencia e
 Añade esto a tu `~/.vimrc`:
 
 ```vim
-Plug 'tu_usuario/intelligence-bridge'
+Plug 'pepo-ec/vim-intelligence-bridge'
