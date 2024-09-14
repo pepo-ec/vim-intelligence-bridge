@@ -3,21 +3,41 @@ import sys
 from dotenv import load_dotenv
 from groq import Groq
 
+GROQ_MODEL=""
+
 def leer_env():
-    # Obtener la ruta del directorio actual (donde está main.py)
-    directorio_actual = os.path.dirname(os.path.abspath(__file__))
+    global GROQ_MODEL
+    # Obtener el valor de la variable de entorno HOME
+    home = os.environ.get('HOME')
+    if not home:
+        raise ValueError("La variable de entorno HOME no está definida")
     # Construir la ruta al archivo .env
-    ruta_env = os.path.join(directorio_actual, '.env')
+    ruta_env = os.path.join(home, '.vim', 'plugged', 'vim-intelligence-bridge', '.env')
+    # Verificar si el archivo .env existe
+    if not os.path.exists(ruta_env):
+        raise FileNotFoundError(f"El archivo .env no existe en la ruta: {ruta_env}")
     # Cargar las variables de entorno desde el archivo .env
     load_dotenv(ruta_env)
     # Leer la variable API_GROQ
     api_groq = os.getenv('API_GROQ')
     if api_groq is None:
         raise ValueError(f"La variable API_GROQ no está definida en el archivo {ruta_env}")
+
+    ruta_env = os.path.join(home, '.vim', 'plugged', 'vim-intelligence-bridge', 'config.env')
+    # Verificar si el archivo .env existe
+    if not os.path.exists(ruta_env):
+        raise FileNotFoundError(f"El archivo config.env no existe en la ruta: {ruta_env}")
+    # Cargar las variables de entorno desde el archivo .env
+    load_dotenv(ruta_env)
+    # Leer y asignar GROQ_MODEL
+    GROQ_MODEL = os.getenv('GROQ_MODEL')
+    if GROQ_MODEL is None:
+        print(f"Advertencia: La variable GROQ_MODEL no está definida en el archivo {ruta_env}")
     return api_groq
 
 
 def call_groq(api_key, system, partial, text_file):
+    global GROQ_MODEL
     client = Groq(
             api_key=api_key
     )
@@ -39,7 +59,7 @@ def call_groq(api_key, system, partial, text_file):
                     "content":  prompt,
                 }
             ],
-            model="llama-3.1-70b-versatile",
+            model=f"{GROQ_MODEL}",
         )
     print(chat_completion.choices[0].message.content)
 
