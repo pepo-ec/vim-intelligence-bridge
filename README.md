@@ -10,7 +10,11 @@ Añade esto a tu `~/.vimrc`:
 
 ```vim
 Plug 'pepo-ec/vim-intelligence-bridge'
+```
 
 ---
 
-First Version
+## APIs integradas
+
+- Ollama
+- Groq
