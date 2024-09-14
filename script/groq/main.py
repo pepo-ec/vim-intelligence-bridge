@@ -13,7 +13,7 @@ def leer_env():
     # Leer la variable API_GROQ
     api_groq = os.getenv('API_GROQ')
     if api_groq is None:
-        raise ValueError("La variable API_GROQ no está definida en el archivo .env")
+        raise ValueError(f"La variable API_GROQ no está definida en el archivo {ruta_env}")
     return api_groq
 
 
