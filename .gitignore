@@ -52,3 +52,4 @@ Thumbs.db
 tags
 
 **/venv/
+.env
