@@ -12,6 +12,10 @@ Añade esto a tu `~/.vimrc`:
 Plug 'pepo-ec/vim-intelligence-bridge'
 ```
 
+### Automatización
+
+Al momento el plugin crea el entorno virtual de Python usando _python3 -m venv venv_
+
 ---
 
 ## APIs integradas
