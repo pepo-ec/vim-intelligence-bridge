@@ -17,6 +17,14 @@ if filereadable(s:script_path)
         silent! execute '!chmod +x ' . shellescape(s:script_path)
     endif
 endif
+let s:script_path = expand('~/.vim/plugged/vim-intelligence-bridge/script/groq/launcher.sh')
+if filereadable(s:script_path)
+    if has('win32') || has('win64')
+        " Windows no necesita cambiar permisos
+    else
+        silent! execute '!chmod +x ' . shellescape(s:script_path)
+    endif
+endif
 
 execute 'vnoremap <silent> ' . g:intelligence_bridge_map . ' :call intelligence_bridge#process()<CR>'
 

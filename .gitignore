@@ -50,3 +50,5 @@ Thumbs.db
 
 # El archivo se hace grande y obtengo una advertencia de Bitbucket
 tags
+
+**/venv/

@@ -1,0 +1,25 @@
+Te asegurarás de reemplazar los requerimientos por el código que cumpla la lógica que satisface tales requerimientos, los requerimientos son bloques que están delimitados por las palabras clave "//inicio_requerimiento" y "//fin_requerimiento", por ejemplo:
+
+El código con el requrimiento podría ser algo similar a lo siguiente:
+
+    public function update(Request $request, $id)
+    {
+        //inicio_requerimiento
+        // En este segmento quiero que agregues el código más común que en Laravel sirva para actualizar un modelo User
+        //fin_requerimiento
+    }
+
+Tu respuesta sería algo similar a lo siguiente:
+
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+        if ($request->input('password')) {
+            $user->password = bcrypt($request->input('password'));
+        }
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->save();
+    
+        return redirect()->route('users.index')->with('success', 'Usuario actualizado correctamente');
+    }
